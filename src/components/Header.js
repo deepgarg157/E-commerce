@@ -1,18 +1,13 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { searchText } from "../utility/searchSlice";
+import { filterSearchDataInfo, searchText, toggleSearchFilter } from "../utility/searchSlice";
+import { items } from "../utility/constant";
 
 const Header = () => {
 
     const searchFilter = useSelector(store => store.search.filterSearchInput)
 
     const dispatch = useDispatch()
-
-    const [searchTextInput, setSearchTextInput] = useState('');
-
-    const handleSearchClick = ()=>{
-        
-    }
 
     const handleSearchInput = (e)=>{      
             dispatch(searchText(e.target.value))
@@ -26,7 +21,11 @@ const Header = () => {
                 </div>
                 <div>
                     <input className="mt-9 w-[450px] border border-gray-200 px-5 py-1 rounded-md bg-gray-100 text-gray-800" type="text" placeholder="Search for Products, Brands, and More....." onChange={handleSearchInput} ></input>
-                    <button className="bg-gray-300 px-3 py-1 rounded-lg mx-2" onClick={handleSearchClick}>Search</button>
+                    <button className="bg-gray-300 px-3 py-1 rounded-lg mx-2" onClick={()=>{
+                        const searchTextFilter = items.filter((filterData) => filterData.category == searchFilter)
+                        dispatch(filterSearchDataInfo(searchTextFilter))
+                        dispatch(toggleSearchFilter(true))
+                    }}>Search</button>
                 </div>
                 <div>
                     <img className="w-10 mt-8 rounded-md cursor-pointer" src="https://i.pinimg.com/564x/2b/35/a4/2b35a4763a31b6f5f40d9de9d7e05f88.jpg"></img>
