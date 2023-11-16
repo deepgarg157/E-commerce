@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import {items} from "../utility/constant"
 import ProductCard from "./ProductCard";
+import { Link } from "react-router-dom";
 
 const ProductContainer = () =>{
 
@@ -13,9 +14,7 @@ const ProductContainer = () =>{
     return(
         <div className="flex flex-wrap bg-gray-200">
 
-            {toggleSearchData ? filter.map((filter) => <ProductCard key={filter.id} itemCardInfo={filter}/>) : items.map((item)=> <ProductCard key={item.id} itemCardInfo = {item} />)}
-
-            {/* {items.map((item)=> <ProductCard key={item.id} itemCardInfo = {item} />)} */}
+            {toggleSearchData ? filter.map((filter) => <Link to="/product"><ProductCard key={filter.id} itemCardInfo={filter}/></Link>) : items.map((item)=> <Link to="/product"><ProductCard key={item.id} itemCardInfo = {item} /></Link>)}
             
         </div>
     )
