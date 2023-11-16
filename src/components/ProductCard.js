@@ -2,8 +2,6 @@ import { useState } from "react";
 
 const ProductCard = ({ itemCardInfo }) => {
 
-    const [searchTextInput, setSearchTextInput] = useState();
-
     return (
         <div className="mx-10 p-2 flex flex-col items-center">
             <img className="w-96 h-96 hover:cursor-pointer rounded-md border border-gray-300" src={itemCardInfo.imgSrc}></img>
