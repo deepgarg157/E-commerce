@@ -14,7 +14,7 @@ const ProductContainer = () =>{
     return(
         <div className="flex flex-wrap bg-gray-200">
 
-            {toggleSearchData ? filter.map((filter) => <Link to="/product"><ProductCard key={filter.id} itemCardInfo={filter}/></Link>) : items.map((item)=> <Link to="/product"><ProductCard key={item.id} itemCardInfo = {item} /></Link>)}
+            {toggleSearchData ? filter.map((filter) => <Link to="/product"><ProductCard key={filter.id} itemCardInfo={filter}/></Link>) : items.map((item)=> <Link to={`/product/${item.id}`}><ProductCard key={item.id} itemCardInfo = {item} /></Link>)}
             
         </div>
     )

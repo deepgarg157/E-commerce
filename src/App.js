@@ -13,7 +13,7 @@ function App() {
       element : <Body />
     },
     {
-      path : "/product",
+      path : "/product/:id",
       element : <ProductInfo />
     }
   ])
