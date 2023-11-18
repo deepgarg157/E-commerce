@@ -2,7 +2,7 @@ const ProductCard = ({ itemCardInfo }) => {
 
     return (
         <div className="mx-10 p-2 flex flex-col items-center">
-            <img className="w-96 h-96 hover:cursor-pointer rounded-md border border-gray-300" src={itemCardInfo.imgSrc}></img>
+            <img className="w-96 h-96 rounded-md border border-gray-300" src={itemCardInfo.imgSrc}></img>
             <h1 className="font-bold text-lg">{itemCardInfo.title}</h1>
             <p className="w-[300px] mt-2 ml-16">{itemCardInfo.description}</p>
             <div className="flex mt-2">
